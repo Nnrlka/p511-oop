@@ -8,8 +8,15 @@ namespace p511_oop
 {
     internal class Program
     {
+        static int add(int a, int b) 
+        {
+            return a + b;
+
+            //123
+        }
         static void Main(string[] args)
         {
+            add(1,2);
         }
     }
 }

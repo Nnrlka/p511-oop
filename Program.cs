@@ -6,17 +6,34 @@ using System.Threading.Tasks;
 
 namespace p511_oop
 {
+    class User
+    {
+        public string name;
+        public string surname;
+        public int age;
+        public string city;
+
+        public User(string name, string surname, int age, string city)
+        {
+            this.name = name;
+            this.surname = surname;
+            this.age = age;
+            this.city = city;
+        }
+        public void GetData()
+        {
+            Console.WriteLine($"Name: {name}, Surname : {surname}, Age: {age}, City: {city}");
+        }
+    }
+
     internal class Program
     {
-        static int add(int a, int b) 
-        {
-            return a + b;
 
-            //123
-        }
         static void Main(string[] args)
         {
-            add(1,2);
+            User user = new User("John", "Doe", 23, "Tymen");
+            user.GetData();
+            
         }
     }
 }

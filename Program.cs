@@ -68,21 +68,7 @@ namespace p511_oop
 
         static void Main(string[] args)
         {
-            Console.WriteLine("--- Создаем корректный прямоугольник ---");
-            Rectangle rect1 = new Rectangle(10, 5);
-
-            Console.WriteLine($"Ширина : {rect1.Width}");
-            Console.WriteLine($"Высота : {rect1.Width}");
-            Console.WriteLine($"Площадь : {rect1.GetArea()}");
-            Console.WriteLine($"Периметр : {rect1.GetPerimeter()}");
-
-            Console.WriteLine("\n-- Попытка создать некорректный прямоугольник --- ");
-            Rectangle rect2 = new Rectangle(-10, 0);
-            Console.WriteLine($"Ширина rect2: {rect2.Width}");
-            Console.WriteLine($"Высота rect2: {rect2.Height}");
-            Console.WriteLine("\n--- Попытка изменить свойства на некорректное значение ---");
-            rect1.Width = -20;
-            Console.WriteLine($"Новая ширина rect1 после попытки изменения: {rect1.Width}");
+            //sdf
         }
     }
 }

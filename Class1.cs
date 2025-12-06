@@ -28,6 +28,7 @@ namespace p511_oop
         }
         public void WorkerPhoneNumberInput()
         {
+
             Console.Write("Введите Контактный телефон пример (+79448711789): ");
             PhoneNumber = Console.ReadLine();
         }

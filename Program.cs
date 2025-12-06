@@ -10,7 +10,9 @@ namespace p511_oop
     {
         static void Main(string[] args)
         {
+
             Worker worker = new Worker();
+
             worker.WorkerFullNameInput();
             worker.WorkerBirtdayInput();
             worker.WorkerPhoneNumberInput();

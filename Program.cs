@@ -8,14 +8,17 @@ namespace p511_oop
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
-            //sdf
+            Worker worker = new Worker();
+            worker.WorkerFullNameInput();
+            worker.WorkerBirtdayInput();
+            worker.WorkerPhoneNumberInput();
+            worker.WorkerEmailInput();
+            worker.WorkerDescriptionOfWorksInout();
+            worker.WorkerPositionInput();
+            worker.PrintWorkerOutput();
         }
     }
-    
-
-
 }
 

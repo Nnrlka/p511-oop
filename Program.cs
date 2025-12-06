@@ -12,6 +12,7 @@ namespace p511_oop
         static void Main(string[] args)
         {
             //sdf
+            Console.WriteLine("Test")
         }
     }
     

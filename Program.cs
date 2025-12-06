@@ -10,6 +10,11 @@ namespace p511_oop
     {
         static void Main(string[] args)
         {
+            //sdf
+            Console.WriteLine("Test")
+        }
+    }
+    
 
             Worker worker = new Worker();
 

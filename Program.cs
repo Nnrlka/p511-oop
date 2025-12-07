@@ -8,32 +8,15 @@ namespace p511_oop
 {
     internal class Program
     {
-        //Наследование (Принцип ООП)
-        class Animal
-        {
-            public string Name { get; set; }
-            public Animal(string name)
-            {
-                Name = name;
-            }
-            public void Eat()
-            {
-                Console.WriteLine("Животное ест");
-            }
-        }
-
-        class Dog : Animal 
-        {
-            public Dog(string name) : base(name)
-            {
-                
-            }
-
-        }
-
-
+        //Наследование
+        
         static void Main(string[] args)
-        { 
+        {
+            Student student = new Student("John", "Doe", "p511");
+            student.Print();
+
+            Aspirant aspirant = new Aspirant("bob", "Doe", "p511", "Work1");
+            aspirant.Print();
         }
     }
     

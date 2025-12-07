@@ -8,7 +8,6 @@ namespace p511_oop
 {
     internal class Program
     {
-
         static void Main(string[] args)
         {
             List<Transport> transports = new List<Transport>()
@@ -29,6 +28,16 @@ namespace p511_oop
         }
     }
 
+            Worker worker = new Worker();
 
+            worker.WorkerFullNameInput();
+            worker.WorkerBirtdayInput();
+            worker.WorkerPhoneNumberInput();
+            worker.WorkerEmailInput();
+            worker.WorkerDescriptionOfWorksInout();
+            worker.WorkerPositionInput();
+            worker.PrintWorkerOutput();
+        }
+    }
 }
 

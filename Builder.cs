@@ -11,15 +11,15 @@ namespace p511_oop
         public string WorkName { get; set; }
         public Builder(string Name, string Action, string Surname) : base (Name, Action, Surname)
         {
-            WorkName = Name;
+
         }
-        public override void Work()
+        public override void PrintInfo()
         {
-            Console.WriteLine($"Привет, я {Name} {Surname}, я строю {Action}, моя работа называется {WorkName}")
+            Console.WriteLine($"Привет, я {Name} {Surname}, я строю дома, моя работа называется {Action}");
         }
         public void Buildhouse()
         {
-            Console.WriteLine("Я строю дом");
+            Console.WriteLine($"{Name} строит дом");
         }
 
 

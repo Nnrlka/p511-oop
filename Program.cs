@@ -12,16 +12,20 @@ namespace p511_oop
 
         static void Main(string[] args)
         {
-            List<Human> humans = new List<Human>()
-            {
-                new Builder(Bob, Building, Doe),
-                new Sailor(2,3,5,8),
-                new Pilot(),
-            };
+            Builder builder = new Builder("Bob", "Builder", "Doe");
+            Sailor sailor = new Sailor("Bob","Sailor", "sail", "Корабль1");
+            Pilot pilot = new Pilot("Plane1b", "Bob", "Pilot", "Fly");
+
+
+            builder.PrintInfo();
+            builder.Buildhouse();
+            Console.WriteLine("------------------");
+            sailor.PrintInfo();
+            sailor.sail();
+            Console.WriteLine("------------------");
+            pilot.PrintInfo();
+            pilot.fly();
         }
+
     }
-    
-
-
 }
-

@@ -15,9 +15,16 @@ namespace p511_oop
             ShipName = shipName;
         }
 
-        public virtual void Work()
+
+        public override void PrintInfo()
         {
-            Console.WriteLine($"Меня зовут : {Name} {Surname}, и езжу на корабле {ShipName} я работаю");
+            base.PrintInfo();
+            Console.WriteLine($"Проффесия моряк, обычно плыву на {ShipName}");
+
+        }
+        public void sail()
+        {
+            Console.WriteLine($"{Name} в открытом плаванье");
         }
     }
 }

@@ -15,9 +15,15 @@ namespace p511_oop
             this.Plane = plane;
         }
 
-        public virtual void Work()
+        public override void PrintInfo()
         {
-            Console.WriteLine($"Я {Name} {Surname} и я делаю {Action} и обычно летаю на {Plane} ");
+            base.PrintInfo();
+            Console.WriteLine($"Проффесия: пилот, обычно летаю на {Plane}");
+
+        }
+        public void fly()
+        {
+            Console.WriteLine($"{Name} управляет самолетом");
         }
     }
 }

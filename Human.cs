@@ -18,9 +18,9 @@ namespace p511_oop
             this.Action = action;
             this.Name = name;
         }
-        public virtual void Work()
+        public virtual void PrintInfo()
         {
-            Console.WriteLine("я работаю");
+            Console.WriteLine($"Имя {Name} Фамилия {Surname}, Действие на работе {Action}");
         }
     }
 }

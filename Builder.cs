@@ -6,16 +6,8 @@ using System.Threading.Tasks;
 
 namespace p511_oop
 {
-    internal class Program
+    internal class Builder : Human
     {
 
-        static void Main(string[] args)
-        {
-            //sdf
-        }
     }
-    
-
-
 }
-

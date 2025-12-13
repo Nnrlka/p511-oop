@@ -8,16 +8,15 @@ namespace p511_oop
 {
     internal abstract class Human
     {
-        protected string Name { get; set; }
-        protected string WorkPlace { get; set; }
-        protected string Surname { get; set; }
+        protected string Name;
+        protected string WorkPlace;
+        protected string Surname;
 
         public Human(string name, string workplace, string surname)
         {
-            this.Name = name;
-            this.WorkPlace = workplace;
             this.Surname = surname;
+            this.WorkPlace = workplace;
+            this.Name = name;
         }
-
     }
 }

@@ -8,12 +8,14 @@ namespace p511_oop
 {
     class Builder : Human
     {
-        public Builder() : base(name, workplace, surname)
+        public Builder() : base(Bob, Stroika, Doe)
         {
 
         }
 
+        public Builder() : base(string name, string workplace, string surname)
+        {
+        }
 
     }
 }
-

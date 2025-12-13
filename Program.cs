@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,34 +11,21 @@ namespace p511_oop
     {
         static void Main(string[] args)
         {
-            List<Transport> transports = new List<Transport>()
-            {
-                new Car(),
-                new Bicycle(2,3,5,8),
-            };
-
-            double distance = 100;
-            int passenger = 2;
-            double cargo = 0.3;
-
-            foreach (Transport transport in transports)
-            {
-                Console.WriteLine($"Время: {transport.GetTime(distance)}");
-                Console.WriteLine($"Время: {transport.GetCost(distance, passenger, cargo)}");
-            }
-        }
-    }
+            Builder builder = new Builder("Bob", "Builder", "Doe");
+            Sailor sailor = new Sailor("Bob","Sailor", "sail", "Корабль1");
+            Pilot pilot = new Pilot("Plane1b", "Bob", "Pilot", "Fly");
 
             Worker worker = new Worker();
 
-            worker.WorkerFullNameInput();
-            worker.WorkerBirtdayInput();
-            worker.WorkerPhoneNumberInput();
-            worker.WorkerEmailInput();
-            worker.WorkerDescriptionOfWorksInout();
-            worker.WorkerPositionInput();
-            worker.PrintWorkerOutput();
+            builder.PrintInfo();
+            builder.Buildhouse();
+            Console.WriteLine("------------------");
+            sailor.PrintInfo();
+            sailor.sail();
+            Console.WriteLine("------------------");
+            pilot.PrintInfo();
+            pilot.fly();
         }
+
     }
 }
-

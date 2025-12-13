@@ -8,14 +8,20 @@ namespace p511_oop
 {
     class Builder : Human
     {
-        public Builder() : base(Bob, Stroika, Doe)
+        public string WorkName { get; set; }
+        public Builder(string Name, string Action, string Surname) : base (Name, Action, Surname)
         {
-
+            WorkName = Name;
+        }
+        public override void Work()
+        {
+            Console.WriteLine($"Привет, я {Name} {Surname}, я строю {Action}, моя работа называется {WorkName}")
+        }
+        public void Buildhouse()
+        {
+            Console.WriteLine("Я строю дом");
         }
 
-        public Builder() : base(string name, string workplace, string surname)
-        {
-        }
 
     }
 }

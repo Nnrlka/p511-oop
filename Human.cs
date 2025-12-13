@@ -6,17 +6,21 @@ using System.Threading.Tasks;
 
 namespace p511_oop
 {
-    internal abstract class Human
+    public class Human
     {
-        protected string Name;
-        protected string WorkPlace;
-        protected string Surname;
+        public string Name;
+        public string Action;
+        public string Surname;
 
-        public Human(string name, string workplace, string surname)
+        public Human(string name, string action, string surname)
         {
             this.Surname = surname;
-            this.WorkPlace = workplace;
+            this.Action = action;
             this.Name = name;
+        }
+        public virtual void Work()
+        {
+            Console.WriteLine("я работаю");
         }
     }
 }

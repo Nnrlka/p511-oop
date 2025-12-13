@@ -18,5 +18,6 @@ namespace p511_oop
             this.WorkPlace = workplace;
             this.Surname = surname;
         }
+
     }
 }

@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace p511_oop
 {
-    internal class Builder : Human
+    class Builder : Human
     {
+        public Builder() : base(name, workplace, surname)
+        {
+
+        }
 
 
     }
 }
+

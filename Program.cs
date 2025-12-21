@@ -109,6 +109,7 @@ namespace p511_oop
             }
         }
 
+            Worker worker = new Worker();
 
 
         static void Main(string[] args)

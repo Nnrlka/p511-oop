@@ -2,7 +2,38 @@
 
 class Program
 {
-    static void Main()
+    abstract class Document
+    {
+        public string Author { get; set; }
+        public abstract void Render();
+    }
+
+    class TextDocument : Document
+    {
+        public string Content { get; set; }
+
+        public override void Render()
+        {
+            Console.WriteLine("Текстовый документ:");
+            Console.WriteLine($"Автор: {Author}");
+            Console.WriteLine($"Содержимое: {Content}");
+        }
+    }
+
+    class ImageDocument : Document
+    {
+        public string Resolution { get; set; }
+
+        public override void Render()
+        {
+            Console.WriteLine("Изображение:");
+            Console.WriteLine($"Автор: {Author}");
+            Console.WriteLine($"Разрешение: {Resolution}");
+        }
+    }
+
+
+    internal class Program
     {
         PrintHeader();
 
@@ -38,33 +69,32 @@ class Program
 
         else if (op == '-')
         {
-            return a - b;
+                List<Document> documents = new List<Document>();
+
+                TextDocument textDoc = new TextDocument();
+                textDoc.Author = "Иван Петров";
+                textDoc.Content = "Это пример текстового документа.";
+
+                ImageDocument imageDoc = new ImageDocument();
+                imageDoc.Author = "Анна Сидорова";
+                imageDoc.Resolution = "1920x1080";
+
+                documents.Add(textDoc);
+                documents.Add(imageDoc);
+
+                foreach (Document doc in documents)
+                {
+                    doc.Render();
+                    Console.WriteLine();
+                }
+            
         }
 
-        else if (op == '*')
-        {
-            return a * b;
-        }
-
-        else if (op == '/')
-        {
-            if (b == 0)
-            {
-                Console.WriteLine("Ошибка: деление на ноль!");
-                return 0;
-            }
-
-            return a / b;
-        }
-
-        else
-        {
-            Console.WriteLine("Неизвестная операция!");
-            return 0;
-        }
     }
     static void PrintResult(double a, double b, char op, double result)
     {
         Console.WriteLine($"Результат: {a} {op} {b} = {result}");
     }
 }
+
+

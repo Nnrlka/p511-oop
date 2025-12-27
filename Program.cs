@@ -11,102 +11,15 @@ namespace p511_oop
 {
     internal class Program
     {
-        public class StudentManager
+        //Наследование
+        
+        static void Main(string[] args)
         {
-            private List<Student> students = new List<Student>();
+            Student student = new Student("John", "Doe", "p511");
+            student.Print();
 
-            public void AddStudent(Student student)
-            {
-                students.Add(student);
-            }
-            public void PrintAllStudents()
-            {
-                if (students.Count == 0)
-                {
-                    Console.WriteLine("Список стундентов пуст");
-                    return;
-                }
-                foreach (Student student in students)
-                {
-                    Console.WriteLine(student);
-                }
-            }
-            public void SaveToFile(string fileName)
-            {
-                try
-                {
-                    using (StreamWriter writer = new StreamWriter(fileName))
-                    {
-                        foreach (Student student in students)
-                        {
-                            writer.WriteLine($"{student.Name}; {student.Age}; {student.AverageGrade}");
-                        }
-                    }
-                    Console.WriteLine("Успешно сохранено");
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine("Ошибка при работе с файлом: " + ex.Message);
-                }
-            }
-            public void LoadFromFile(string fileName)
-            {
-                try
-                {
-                    using (StreamReader reader = new StreamReader(fileName))
-                    {
-
-
-                        students.Clear();
-                        string Line;
-
-                        while ((Line = reader.ReadLine()) != null)
-                        {
-                            string[] parts = Line.Split(';');
-                            if (parts.Length != 3)
-                                continue;
-                            Student student = new Student(
-                                parts[0],
-                                int.Parse(parts[1]),
-                                double.Parse(parts[2]));
-                            students.Add(student);
-
-                        }
-                    }
-                }
-                catch (FileNotFoundException)
-                {
-                    Console.WriteLine("Файл не найден");
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Неверный формат данных в файле");
-                }
-                catch (IOException ex)
-                {
-                    Console.WriteLine("ошибка при работе с файлом");
-                }
-            }
-
-
-        }
-
-        public class Student
-        {
-            public string Name { get; set; }
-            public int Age { get; set; }
-            public double AverageGrade { get; set; }
-
-            public Student(string name, int age, double averageGrade)
-            {
-                Name = name;
-                Age = age;
-                AverageGrade = averageGrade;
-            }
-            public override string ToString()
-            {
-                return $"Фио: {Name}, возраст : {Age}, Средний балл: {AverageGrade}";
-            }
+            Aspirant aspirant = new Aspirant("bob", "Doe", "p511", "Work1");
+            aspirant.Print();
         }
 
             Worker worker = new Worker();

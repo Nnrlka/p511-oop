@@ -2,65 +2,91 @@
 
 class Program
 {
-    static void Main()
-    {
-        PrintHeader();
 
-        double number1 = ReadNumber("Введите первое число: ");
-        double number2 = ReadNumber("Введите второе число: ");
-        char operation = ReadOperation("Введите символ операции: ");
+    class Product
+    {
+        public int Id { get; }
+        public string Name { get; }
+        public decimal Price { get; }
 
-        double result = Calculate(number1, number2, operation);
-        
-        PrintResult(number1, number2, operation, result);
-    }
-    static void PrintHeader()
-    {
-        Console.WriteLine("-- Улучшенный калькулятор ---");
-        Console.WriteLine("Доступные операции: +, -, *, /");
-    }
-    static double ReadNumber(string message)
-    {
-        Console.Write(message);
-        return Convert.ToDouble(Console.ReadLine());
-    }
-    static char ReadOperation(string message)
-    {
-        Console.Write(message);
-        return Convert.ToChar(Console.ReadLine());
-    }
-    static double Calculate(double a, double b, char op)
-    {
-        if (op == '+')
+        public Product(int id, string name, decimal price)
         {
-            return a + b;
+            Id = id;
+            Name = name;
+            Price = price;
+        }
+        public override string ToString()
+        {
+            return $"Product {{ Id = {Id}, Name = {Name}, Price = {Price} }}";
+        }
+    }
+    class Inventory
+    {
+        private List<Product> products = new List<Product>();
+
+        public void AddProduct(Product product)
+        {
+            products.Add(product);
+            Console.WriteLine($"Добавлен товар: {product}");
         }
 
-        else if (op == '-')
+        public Product FindProductById(int id)
         {
-            return a - b;
-        }
-
-        else if (op == '*')
-        {
-            return a * b;
-        }
-
-        else if (op == '/')
-        {
-            if (b == 0)
+            foreach (Product product in products)
             {
-                Console.WriteLine("Ошибка: деление на ноль!");
-                return 0;
+                if (product.Id == id)
+                {
+                    return product;
+                }
+            }
+            return null;
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Inventory inventory = new Inventory();
+
+            Console.WriteLine("--- Управление инвентарем ---");
+
+            Console.Write("Сколько товаров хотите добавить? ");
+            int count = int.Parse(Console.ReadLine());
+
+            for (int i = 0; i < count; i++)
+            {
+                Console.WriteLine($"\nТовар #{i + 1}:");
+
+                Console.Write("Введите ID: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Console.Write("Введите название: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Введите цену: ");
+                decimal price = decimal.Parse(Console.ReadLine());
+
+                Product product = new Product(id, name, price);
+                inventory.AddProduct(product);
+            }
+            while (true)
+            {
+                Console.Write("\nВведите ID товара для поиска (или 0 для выхода): ");
+                int searchId = int.Parse(Console.ReadLine());
+
+                if (searchId == 0)
+                    break;
+
+                Product found = inventory.FindProductById(searchId);
+
+                if (found != null)
+                    Console.WriteLine($"Найден товар: {found}");
+                else
+                    Console.WriteLine($"Товар с ID {searchId} не найден.");
             }
 
-            return a / b;
-        }
-
-        else
-        {
-            Console.WriteLine("Неизвестная операция!");
-            return 0;
+            Console.WriteLine("\nПрограмма завершена.");
         }
     }
     static void PrintResult(double a, double b, char op, double result)
@@ -68,3 +94,4 @@ class Program
         Console.WriteLine($"Результат: {a} {op} {b} = {result}");
     }
 }
+        

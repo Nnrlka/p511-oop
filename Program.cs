@@ -1,99 +1,70 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.IO;
-using System.Linq;
-using System.Runtime.Remoting.Messaging;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace p511_oop
+class Program
 {
-    internal class Program
+    static void Main()
     {
-        public class StudentManager
+        PrintHeader();
+
+        double number1 = ReadNumber("Введите первое число: ");
+        double number2 = ReadNumber("Введите второе число: ");
+        char operation = ReadOperation("Введите символ операции: ");
+
+        double result = Calculate(number1, number2, operation);
+        
+        PrintResult(number1, number2, operation, result);
+    }
+    static void PrintHeader()
+    {
+        Console.WriteLine("-- Улучшенный калькулятор ---");
+        Console.WriteLine("Доступные операции: +, -, *, /");
+    }
+    static double ReadNumber(string message)
+    {
+        Console.Write(message);
+        return Convert.ToDouble(Console.ReadLine());
+    }
+    static char ReadOperation(string message)
+    {
+        Console.Write(message);
+        return Convert.ToChar(Console.ReadLine());
+    }
+    static double Calculate(double a, double b, char op)
+    {
+        if (op == '+')
         {
-            //sdf
-            Console.WriteLine("Test")
+            return a + b;
+        }
+
+        else if (op == '-')
+        {
+            return a - b;
+        }
+
+        else if (op == '*')
+        {
+            return a * b;
+        }
+
+        else if (op == '/')
+        {
+            if (b == 0)
+            {
+                Console.WriteLine("Ошибка: деление на ноль!");
+                return 0;
+            }
+
+            return a / b;
+        }
+
+        else
+        {
+            Console.WriteLine("Неизвестная операция!");
+            return 0;
         }
     }
-    
-
-            Worker worker = new Worker();
-
-
-        static void Main(string[] args)
-        {
-
-            Console.WriteLine("                                                                                            ");
-            Console.WriteLine("             ------Добро пожаловать в консольное приложения для учета студентоввв------");
-            Console.WriteLine("                             выберите цифру для взаимодействия \n     1.Добавить студента, 2. Показать всех студентов, 3. сохранить в файл, 4. Загрузить из файла, 0. Выход ");
-            Console.WriteLine("                                                                                            ");
-            StudentManager manager = new StudentManager();
-            bool running = true;
-
-            while (running)
-            {
-                Console.Clear();
-                Console.WriteLine("1. Добавить студента");
-                Console.WriteLine("2. Показать всех студентов");
-                Console.WriteLine("3. Сохранить в файл");
-                Console.WriteLine("4. Загрузить из файла");
-                Console.WriteLine("5. Выход");
-                Console.Write("Выберите пункт: ");
-
-                string choice = Console.ReadLine();
-
-                switch (choice)
-                {
-                    case "1":
-                        Console.Write("Введите ФИО: ");
-                        string name = Console.ReadLine();
-
-                        Console.Write("Введите возраст: ");
-                        if (!int.TryParse(Console.ReadLine(), out int age))
-                        {
-                            Console.WriteLine("Возраст введён неверно!");
-                            break;
-                        }
-                        
-                        Console.Write("Введите средний балл: ");
-                        if (!double.TryParse(Console.ReadLine(), out double averageGrade))
-                        {
-                            Console.WriteLine("Средний балл введён неверно!");
-                            break;
-                        }
-
-                        manager.AddStudent(new Student(name, age, averageGrade));
-                        Console.WriteLine("Студент добавлен!");
-                        break;
-
-                    case "2":
-                        manager.PrintAllStudents();
-                        break;
-
-                    case "3":
-                        Console.Write("Введите имя файла: ");
-                        manager.SaveToFile(Console.ReadLine());
-                        break;
-
-                    case "4":
-                        Console.Write("Введите имя файла: ");
-                        manager.LoadFromFile(Console.ReadLine());
-                        break;
-
-                    case "5":
-                        running = false;
-                        break;
-
-                    default:
-                        Console.WriteLine("Неверный пункт меню!");
-                        break;
-                }
-
-                Console.WriteLine("\nНажмите любую клавишу...");
-                Console.ReadKey();
-            }
-        }
+    static void PrintResult(double a, double b, char op, double result)
+    {
+        Console.WriteLine($"Результат: {a} {op} {b} = {result}");
     }
 }

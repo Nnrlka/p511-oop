@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace p511_oop
+class Program
 {
 
     class Product
@@ -92,6 +88,10 @@ namespace p511_oop
 
             Console.WriteLine("\nПрограмма завершена.");
         }
+    }
+    static void PrintResult(double a, double b, char op, double result)
+    {
+        Console.WriteLine($"Результат: {a} {op} {b} = {result}");
     }
 }
         

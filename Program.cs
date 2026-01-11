@@ -4,11 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.Json;
-using System.Net.Http;
 
 class Program
 {
-    static void Main()
+    class Person
+    {
+        public string Name { get; set; }
+        public int Age { get; set; }
+    }
+    internal class Program
     {
         PrintHeader();
 
@@ -39,17 +43,18 @@ class Program
     {
         if (op == '+')
         {
-            const string URL = "https://jsonplaceholder.org/posts";
+            Person person = new Person
+            {
+                Name = "john",
+                Age = 30
+            };
+            // Создание JSON
+            string json = JsonSerializer.Serialize(person);
+            Console.WriteLine(json);
+            //Преобразование из JSON в объект 
+            Person deserialized = JsonSerializer.Deserialize < Person>(json);
 
-            HttpClient client = new HttpClient();
-
-            client.BaseAddress = new Uri(URL);
-
-            var response = client.GetAsync(URL).Result;
-
-            Console.WriteLine(response);
-
-        }  
+        }
     }
     
 

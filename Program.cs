@@ -12,16 +12,7 @@ namespace p511_oop
 
         static void Main(string[] args)
         {
-            Person person = new Person
-            {
-                Name = "john",
-                Age = 30
-            };
-            // Создание JSON
-            string json = JsonSerializer.Serialize(person);
-            Console.WriteLine(json);
-            //Преобразование из JSON в объект 
-            Person deserialized = JsonSerializer.Deserialize < Person>(json);
+           
 
         }  
     }

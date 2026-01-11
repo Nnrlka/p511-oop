@@ -1,4 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.Json;
+using System.Net.Http;
 
 class Program
 {
@@ -33,8 +39,19 @@ class Program
     {
         if (op == '+')
         {
-            return a + b;
-        }
+            const string URL = "https://jsonplaceholder.org/posts";
+
+            HttpClient client = new HttpClient();
+
+            client.BaseAddress = new Uri(URL);
+
+            var response = client.GetAsync(URL).Result;
+
+            Console.WriteLine(response);
+
+        }  
+    }
+    
 
         else if (op == '-')
         {
